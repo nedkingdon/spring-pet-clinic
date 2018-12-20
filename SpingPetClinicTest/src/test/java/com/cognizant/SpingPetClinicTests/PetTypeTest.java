@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
-public class SpecialitiesTest {
+public class PetTypeTest {
 	private RequestSpecification request;
 	private Response response;
 	private ValidatableResponse json;
@@ -18,14 +18,14 @@ public class SpecialitiesTest {
 	@Test
 	public void getAllRequest() {
 		request = RestAssured.given().contentType(ContentType.JSON);
-		response = request.when().get("http://localhost:9966/petclinic/api/specialties/");
+		response = request.when().get("http://localhost:9966/petclinic/api/pettypes/");
 		json = response.then().statusCode(200);
 	}
 	
 	@Test
 	public void getOneRequest() {
 		request = RestAssured.given().contentType(ContentType.JSON);
-		response = request.when().get("http://localhost:9966/petclinic/api/specialties/2");
+		response = request.when().get("http://localhost:9966/petclinic/api/pettypes/2");
 		json = response.then().statusCode(200);
 	}
 
@@ -40,7 +40,7 @@ public class SpecialitiesTest {
 		
 		request.body(speciality.toString());
 		
-		response = request.post("http://localhost:9966/petclinic/api/specialties/");
+		response = request.post("http://localhost:9966/petclinic/api/pettypes/");
 		json = response.then().statusCode(201);
 	}
 
@@ -55,14 +55,14 @@ public class SpecialitiesTest {
 		
 		request.body(speciality.toString());
 		
-		response = request.put("http://localhost:9966/petclinic/api/specialties/2/");
+		response = request.put("http://localhost:9966/petclinic/api/pettypes/2/");
 		json = response.then().statusCode(204);
 	}
 
 	@Test
 	public void deleteRequest() {
 		request = RestAssured.given().contentType(ContentType.JSON);		
-		response = request.when().delete("http://localhost:9966/petclinic/api/specialties/1");
+		response = request.when().delete("http://localhost:9966/petclinic/api/pettypes/1");
 		json = response.then().statusCode(204);
 	}
 
